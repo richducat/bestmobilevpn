@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best VPN Guide</title>
+  <title>Best Mobile VPN Finder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #171a20;
-      --muted: #6e6e73;
-      --panel: #f5f5f7;
+      --ink: #0e1116;
+      --muted: #545b67;
+      --panel: #f6f7fb;
       --accent: #e31837;
-      --accent-2: #0071e3;
-      --border: #e5e5e7;
+      --accent-2: #0f8bff;
+      --border: #e5e7eb;
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow: 0 18px 40px rgba(0,0,0,0.08);
     }
     * { box-sizing: border-box; }
     body {
@@ -31,514 +31,535 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.86);
+      background: rgba(255,255,255,0.9);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 28px;
+      padding: 14px 26px;
     }
     header .brand {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.2px;
     }
     header nav a {
       color: var(--muted);
       text-decoration: none;
       margin-left: 18px;
-      font-weight: 500;
+      font-weight: 600;
       transition: color .2s ease;
     }
     header nav a:hover { color: var(--ink); }
 
+    .shell { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
     .hero {
-      padding: 90px 24px 70px;
+      padding: 90px 24px 80px;
+      background: linear-gradient(135deg, #f7f8fb 0%, #ffffff 55%, #f3f4f6 100%);
       text-align: center;
-      background: linear-gradient(135deg, #f9f9fb 0%, #ffffff 50%, #f3f4f6 100%);
     }
     .hero h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      margin: 0 0 14px;
+      font-size: clamp(34px, 5vw, 52px);
       letter-spacing: -0.04em;
+      margin: 0 0 14px;
     }
-    .hero p {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-    .hero .cta {
+    .hero p { color: var(--muted); margin: 0 0 24px; font-size: 18px; }
+    .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      background: #0b0b0d;
-      color: #fff;
-      padding: 14px 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      box-shadow: var(--shadow);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .hero .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-    }
-
-    .shell {
-      max-width: 1100px;
-      margin: -60px auto 80px;
-      padding: 0 20px;
-    }
-    .panel {
-      background: #fff;
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      padding: 26px;
-      border: 1px solid var(--border);
-    }
-    .panel + .panel { margin-top: 18px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 22px;
-    }
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .section-title span {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--panel);
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .choices {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-    }
-    .choice {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      background: #fdfdfd;
-      cursor: pointer;
-      transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease;
-    }
-    .choice strong { display: block; margin-bottom: 6px; }
-    .choice small { color: var(--muted); line-height: 1.5; display: block; }
-    .choice.active {
-      border-color: #0b0b0d;
-      background: #fff;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-
-    .slider-group {
-      margin: 16px 0 6px;
-    }
-    .slider-label {
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-    input[type=range] {
-      width: 100%;
-      accent-color: var(--ink);
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 6px 0 2px;
-    }
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fdfdfd;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all .15s ease;
-    }
-    .pill.active { border-color: #0b0b0d; background: #fff; }
-
-    .summary {
-      background: linear-gradient(135deg, #0b0b0d, #1d1f23);
-      color: #fff;
-      border-radius: 22px;
-      padding: 22px;
-      display: grid;
-      gap: 10px;
-    }
-    .summary small { color: rgba(255,255,255,0.7); }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-    .progress {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border-radius: 999px;
-      overflow: hidden;
-      height: 8px;
-      margin-top: 6px;
-    }
-    .progress span {
-      display: block;
-      height: 8px;
-      background: #fff;
-      width: 36%;
-      transition: width .2s ease;
-    }
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .cta-primary, .cta-ghost {
-      padding: 12px 18px;
+      padding: 14px 22px;
       border-radius: 12px;
-      border: 1px solid #fff;
-      color: #fff;
-      background: transparent;
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: 0.02em;
-      text-align: center;
-      transition: background .2s ease, color .2s ease;
-      min-width: 160px;
+      letter-spacing: 0.01em;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .cta-primary { background: #fff; color: #0b0b0d; border-color: #fff; }
-    .cta-primary:hover { background: #dcdcdc; }
-    .cta-ghost:hover { background: rgba(255,255,255,0.08); }
+    .btn-primary { background: #0b0c10; color: #fff; }
+    .btn-secondary { background: #0f8bff; color: #fff; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 22px 46px rgba(0,0,0,0.1); }
 
-    .callouts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
+    .trust-bar { margin-top: 18px; color: var(--muted); font-size: 14px; }
+
+    section { padding: 70px 0; }
+    .section-heading { font-size: 28px; margin: 0 0 14px; letter-spacing: -0.02em; }
+    .section-sub { color: var(--muted); max-width: 740px; }
+    .panel { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fdfdfd;
+      cursor: pointer;
+      transition: all .15s ease;
+      min-width: 180px;
+      text-align: left;
     }
-    .callout {
+    .pill strong { display: block; margin-bottom: 4px; }
+    .pill small { color: var(--muted); }
+    .pill.active { border-color: #0b0c10; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+
+    .quiz-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: start; }
+    .step-label { color: var(--muted); font-weight: 700; letter-spacing: 0.08em; font-size: 12px; text-transform: uppercase; }
+    .question { font-size: 22px; margin: 6px 0 14px; letter-spacing: -0.01em; }
+    .multi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .checkbox {
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 12px 14px;
+      padding: 14px;
       background: #fafafa;
-      color: var(--muted);
-      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      transition: all .15s ease;
     }
+    .checkbox input { margin-top: 4px; }
+    .checkbox strong { display: block; }
+    .checkbox small { color: var(--muted); }
+    .checkbox.active { border-color: #0b0c10; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
 
-    footer {
-      text-align: center;
-      padding: 30px 10px 60px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .progress { height: 8px; background: #eef1f5; border-radius: 999px; overflow: hidden; margin: 16px 0; }
+    .progress span { display: block; height: 8px; background: linear-gradient(90deg, #0f8bff, #0b0c10); width: 0%; transition: width .3s ease; }
+    .nav-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .btn-ghost { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: #fff; color: var(--ink); font-weight: 700; text-decoration: none; cursor: pointer; }
+
+    .result-card { background: linear-gradient(135deg, #0b0c10, #1b1e25); color: #fff; border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+    .result-card h3 { margin: 0 0 6px; font-size: 24px; }
+    .result-card p { color: rgba(255,255,255,0.78); }
+    .result-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; align-items: start; }
+    .bullet { display: flex; gap: 10px; margin: 8px 0; }
+    .bullet strong { color: #fff; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(255,255,255,0.08); border-radius: 999px; font-size: 13px; }
+    .cta-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .cta-dark { background: #fff; color: #0b0c10; padding: 12px 16px; border-radius: 12px; font-weight: 800; text-decoration: none; }
+    .cta-outline { border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+
+    .comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card { border: 1px solid var(--border); border-radius: 16px; padding: 18px; background: #fff; box-shadow: var(--shadow); }
+    .card h4 { margin: 0 0 6px; }
+    .card p { color: var(--muted); }
+    .card .btn { width: 100%; box-shadow: none; }
+
+    footer { text-align: center; padding: 40px 14px 70px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
     @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
+      .quiz-grid, .result-grid { grid-template-columns: 1fr; }
       header { position: static; }
-      .shell { margin-top: -30px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">Best Mobile VPN</div>
+    <div class="brand">BestMobileVPN.net</div>
     <nav>
-      <a href="#builder">Builder</a>
-      <a href="#recommendation">Recommendation</a>
-      <a href="#faq">FAQ</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#top-picks">Top Picks</a>
+      <a href="#why">Why a VPN</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Build the best VPN plan for you</h1>
-    <p>Answer a few quick questions and we’ll craft a recommendation inspired by the clean, confident Tesla experience.</p>
-    <a class="cta" href="#builder">Start now →</a>
+    <h1>Find the Best Mobile VPN for <em>You</em> in 45 Seconds</h1>
+    <p>Compare the top iPhone &amp; Android VPN apps, unlock exclusive discounts (up to <strong>63% off + 3 months free</strong>), and protect your phone on any Wi‑Fi with a VPN that actually fits your life.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#quiz">Start 45‑Second VPN Finder</a>
+      <a class="btn btn-secondary" href="#top-picks">See Today’s Top Mobile VPN Deals</a>
+    </div>
+    <div class="trust-bar">Real testing • No “random listicles” • We may earn a commission if you buy through our links — at <strong>no extra cost</strong> to you.</div>
   </section>
 
-  <div class="shell" id="builder">
-    <div class="panel grid">
-      <div>
-        <div class="section-title"><span>1</span>What matters most?</div>
-        <div class="choices" data-group="priority">
-          <div class="choice" data-value="speed">
-            <strong>Speed</strong>
-            <small>Fast streaming, gaming, and downloads.</small>
-          </div>
-          <div class="choice" data-value="privacy">
-            <strong>Privacy</strong>
-            <small>Independent audits, RAM-only servers.</small>
-          </div>
-          <div class="choice" data-value="budget">
-            <strong>Best value</strong>
-            <small>Affordable monthly pricing for many devices.</small>
-          </div>
-          <div class="choice" data-value="travel">
-            <strong>Travel</strong>
-            <small>Strong at bypassing blocks in airports & hotels.</small>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="section-title"><span>2</span>Where will you use it?</div>
-        <div class="choices" data-group="usage">
-          <div class="choice" data-value="home">
-            <strong>At home</strong>
-            <small>Smart TVs and shared Wi‑Fi.</small>
-          </div>
-          <div class="choice" data-value="travel">
-            <strong>On the go</strong>
-            <small>Airports, hotels, mobile hotspots.</small>
-          </div>
-          <div class="choice" data-value="both">
-            <strong>Both</strong>
-            <small>Mix of home and travel use.</small>
-          </div>
-        </div>
-      </div>
+  <section>
+    <div class="shell">
+      <p class="step-label">Why BestVPNMobile.net?</p>
+      <h2 class="section-heading">We test real VPN apps on real phones.</h2>
+      <p class="section-sub">There are <strong>hundreds</strong> of VPN apps in the app stores – and most of them are slow, shady, or flat‑out dangerous. We install, speed‑test, and use each app on both iPhone and Android, then rank them on performance, privacy, unblocking, and value.</p>
+      <blockquote style="background:#f9fafb;border-radius:14px;padding:14px 16px;border:1px solid var(--border);margin:14px 0;"> <strong>“Test real mobile VPNs on real phones and show you only the ones we’d trust with our own data.”</strong> </blockquote>
+      <ul style="color: var(--muted); line-height:1.7;">
+        <li>📱 <strong>Mobile performance:</strong> speed, stability, battery use</li>
+        <li>🔒 <strong>Security &amp; privacy:</strong> encryption, no‑logs policies, kill switch, leaks</li>
+        <li>🌍 <strong>Unblocking power:</strong> streaming, traveling, bypassing restrictions</li>
+        <li>💰 <strong>Value for money:</strong> long‑term pricing &amp; current deals</li>
+      </ul>
+      <a class="btn btn-primary" style="margin-top:12px;" href="#quiz">Skip the Nerd Talk – Show Me the Best VPN Right Now</a>
     </div>
+  </section>
 
-    <div class="panel grid">
+  <section id="quiz" style="background: #f6f7fb;">
+    <div class="shell quiz-grid">
       <div>
-        <div class="section-title"><span>3</span>Devices & streaming</div>
-        <div class="pill-row" data-group="devices">
-          <div class="pill" data-value="1-3">1–3 devices</div>
-          <div class="pill" data-value="4-8">4–8 devices</div>
-          <div class="pill" data-value="9+">9+ devices</div>
-        </div>
-        <div class="pill-row" data-group="streaming">
-          <div class="pill" data-value="yes">Needs Netflix/YouTube TV</div>
-          <div class="pill" data-value="no">Streaming not needed</div>
-        </div>
-        <div class="pill-row" data-group="extras">
-          <div class="pill" data-value="adblock">Built‑in ad blocking</div>
-          <div class="pill" data-value="meshnet">Secure device‑to‑device</div>
-          <div class="pill" data-value="antivirus">Security bundle</div>
+        <div class="panel" id="quiz-card">
+          <p class="step-label">Not Sure Which VPN to Pick? Let’s Match You in 45 Seconds.</p>
+          <h3 class="question">Answer a few quick questions and we’ll match you with the best mobile VPN for your device, budget, and goals – plus the best current deal.</h3>
+          <div class="progress"><span id="progress-bar"></span></div>
+          <div id="step-content"></div>
+          <div class="nav-row">
+            <button class="btn-ghost" id="prev-btn" disabled>Back</button>
+            <button class="btn btn-secondary" id="next-btn">Start My VPN Match</button>
+          </div>
         </div>
       </div>
       <div>
-        <div class="section-title"><span>4</span>Monthly budget</div>
-        <div class="slider-group">
-          <div class="slider-label"><span>Preferred</span><span><strong id="budget-label">$12</strong>/mo</span></div>
-          <input id="budget" type="range" min="4" max="16" step="1" value="12">
-          <div class="slider-label" style="margin-top:6px;"><span>$4</span><span>$16+</span></div>
-        </div>
-        <div class="callouts">
-          <div class="callout">Lower budgets favor Surfshark or Private Internet Access.</div>
-          <div class="callout">Higher budgets unlock faster streaming routes.</div>
+        <div class="result-card" id="result-card">
+          <div class="tag" id="persona-tag">Best Overall Mobile VPN</div>
+          <h3 id="result-heading">Your Best Match: NordVPN – Best All‑Round Mobile VPN</h3>
+          <p id="result-copy">Based on your answers, NordVPN hits the sweet spot for speed, security, and mobile ease‑of‑use. It’s the VPN we recommend to most people who want a fast, set‑and‑forget app that just works on both iPhone and Android.</p>
+          <div id="result-bullets"></div>
+          <div class="cta-stack">
+            <a class="cta-dark" id="result-cta" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Get NordVPN Deal – Activate My Discount</a>
+            <a class="cta-outline" href="#top-picks">Compare with Other Top Mobile VPNs</a>
+          </div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin-top:10px;">You’ll be taken to the official site. Discount is applied automatically.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="panel" id="recommendation">
-      <div class="section-title"><span>✓</span>Your match</div>
-      <div class="summary">
-        <div class="badge" id="badge">Optimized pick</div>
-        <div>
-          <h2 style="margin:4px 0 2px; font-size: 26px;" id="provider-name">NordVPN</h2>
-          <small id="provider-tagline">Balanced speed, privacy, and unblocking.</small>
+  <section id="top-picks">
+    <div class="shell">
+      <h2 class="section-heading">Our Top Mobile VPN Picks (All Fully Tested)</h2>
+      <p class="section-sub">Short on time? Here are the VPNs we actually recommend for mobile – no fluff, just apps that scored high in our tests.</p>
+      <div class="comparison" style="margin-top:18px;">
+        <div class="card">
+          <h4>Editor’s Choice: NordVPN</h4>
+          <p>Best for: <strong>Most iPhone &amp; Android users</strong></p>
+          <p>Fast, secure, easy to use, with a great mix of price &amp; features.</p>
+          <a class="btn btn-secondary" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Get NordVPN – Up to 63% Off + 3 Months Free</a>
         </div>
-        <div id="provider-notes"></div>
-        <div class="progress"><span id="confidence" style="width: 40%"></span></div>
-        <div class="cta-row">
-          <a class="cta-primary" id="provider-link" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Continue to NordVPN</a>
-          <a class="cta-ghost" href="#faq">See why</a>
+        <div class="card">
+          <h4>Best Value: Surfshark</h4>
+          <p>Best for: <strong>Families &amp; device hoarders</strong></p>
+          <p>Unlimited devices on one plan, great price, strong apps.</p>
+          <a class="btn btn-secondary" href="https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">See Surfshark Discount</a>
+        </div>
+        <div class="card">
+          <h4>Best for Streaming: ExpressVPN</h4>
+          <p>Best for: <strong>Streaming &amp; travel</strong></p>
+          <p>Very consistent streaming unblock, fast global network, super simple apps.</p>
+          <a class="btn btn-secondary" href="https://www.xvinlink.com/?a_fid=YOUR_AFF_ID" target="_blank" rel="noopener">Get ExpressVPN for Streaming</a>
+        </div>
+        <div class="card">
+          <h4>Best Free Option: Proton VPN</h4>
+          <p>Best for: <strong>Budget / privacy‑first users</strong></p>
+          <p>Legit free tier, strong privacy, upgrade path if needed.</p>
+          <a class="btn btn-secondary" href="https://go.getproton.me/aff_c?offer_id=YOUR_AFF_ID" target="_blank" rel="noopener">Start with Proton VPN Free</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="panel" id="faq">
-      <div class="section-title"><span>?</span>Why this format</div>
-      <p style="color: var(--muted);">The flow mirrors Tesla’s clean configurator: minimal chrome, strong typography, and clear steps. Each tap updates your recommendation instantly so you always know which VPN best fits your speed, privacy, device, and budget needs.</p>
-      <div class="choices" style="margin-top: 12px;" data-group="faq">
-        <div class="choice active">
-          <strong>Do you log data?</strong>
-          <small>No. Each recommended provider has a public no‑logs policy and audited infrastructure.</small>
-        </div>
-        <div class="choice active">
-          <strong>Can I change later?</strong>
-          <small>Yes. Links take you directly to flexible plans with money‑back guarantees.</small>
-        </div>
-        <div class="choice active">
-          <strong>Affiliate notice</strong>
-          <small>Some links are affiliate links. Your price never changes.</small>
-        </div>
+  <section id="why" style="background:#f6f7fb;">
+    <div class="shell">
+      <h2 class="section-heading">Still Deciding? Here’s Why a Mobile VPN Is a No‑Brainer</h2>
+      <div class="panel" style="margin-top:16px; line-height:1.7; color: var(--muted);">
+        <p><strong>Your phone is your life.</strong> Banking, email, social, dating, work apps – it all runs through your phone. If someone gets into that traffic on public Wi‑Fi, they see everything.</p>
+        <p><strong>Public Wi‑Fi is a goldmine for attackers.</strong> Airports, hotels, and cafés are full of unencrypted networks. Fake hotspots and man‑in‑the‑middle attacks are easy to pull off. A VPN encrypts your connection so what you do on your phone is unreadable to anyone snooping.</p>
+        <p><strong>Your ISP and apps build profiles on you.</strong> Without a VPN, your real IP, location, and browsing habits can be logged and monetized. A VPN gives you your digital privacy back.</p>
+        <p><strong>You unlock more of the internet.</strong> Traveling? Living abroad? Want shows that only appear in other countries? A mobile VPN lets you virtually hop locations and reclaim a fair internet.</p>
+        <a class="btn btn-primary" style="margin-top:12px;" href="#quiz">Take the 45‑Second Quiz &amp; Lock In the Right VPN</a>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer>
-    Built for simplicity. Choose confidently, like configuring a car — but for your privacy.
+    <p><strong>Affiliate disclosure:</strong> Some of the links on BestVPNMobile.net are affiliate links. If you click one and buy a VPN, we may earn a commission at no extra cost to you. This helps us pay for testing, tools, and keeping this site ad‑light. We only recommend VPNs we’ve personally tested on real mobile devices.</p>
+    <p>Built for simplicity. Choose confidently.</p>
   </footer>
 
   <script>
-    const providers = [
+    const steps = [
       {
-        name: 'NordVPN',
-        link: 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID',
-        price: 12,
-        devices: 6,
-        tagline: 'Balanced speed, privacy, and unblocking.',
-        badges: ['Fastest routes', 'Meshnet'],
-        weight: { speed: 5, privacy: 5, budget: 3, travel: 4 },
-        extras: ['meshnet']
+        key: 'devices',
+        question: 'What do you want to protect?',
+        type: 'options',
+        options: [
+          { value: 'iphone', label: 'My iPhone only', note: 'I mainly use an iPhone / iPad.' },
+          { value: 'android', label: 'My Android phone only', note: 'I’m on Android (Samsung, Google, etc.).' },
+          { value: 'both', label: 'Both iPhone & Android', note: 'I want one VPN that covers multiple phones.' },
+          { value: 'all', label: 'All my devices (phone, laptop, tablet, TV)', note: 'I’d love an “all‑in‑one” solution.' }
+        ]
       },
       {
-        name: 'Surfshark',
-        link: 'https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID',
-        price: 8,
-        devices: Infinity,
-        tagline: 'Unlimited devices with ad & tracker blocking.',
-        badges: ['Value leader', 'Unlimited devices'],
-        weight: { speed: 4, privacy: 4, budget: 5, travel: 4 },
-        extras: ['adblock']
+        key: 'reason',
+        question: 'What’s the main reason you’re getting a VPN?',
+        type: 'options',
+        options: [
+          { value: 'wifi', label: 'Stay safe on public Wi‑Fi', note: 'Cafés, hotels, airports – I don’t want hackers sniffing my data.' },
+          { value: 'streaming', label: 'Streaming & entertainment', note: 'Netflix, sports, and shows from other countries.' },
+          { value: 'crypto', label: 'Crypto / banking & online finance', note: 'I log in to exchanges, wallets, or banking on my phone.' },
+          { value: 'privacy', label: 'Privacy & anonymity', note: 'I don’t want my ISP, apps, or websites tracking me.' },
+          { value: 'torrenting', label: 'Torrenting / P2P', note: 'I sometimes download via torrents and want to stay private.' },
+          { value: 'overall', label: 'I just want the best overall mobile VPN', note: 'I want a strong all‑rounder and don’t want to overthink it.' }
+        ]
       },
       {
-        name: 'ExpressVPN',
-        link: 'https://www.xvinlink.com/?a_fid=YOUR_AFF_ID',
-        price: 14,
-        devices: 8,
-        tagline: 'Premium routing for travelers and streamers.',
-        badges: ['Travel proven', 'Premium'],
-        weight: { speed: 5, privacy: 4, budget: 2, travel: 5 },
-        extras: []
+        key: 'budget',
+        question: 'What’s your budget like?',
+        type: 'options',
+        options: [
+          { value: 'premium', label: 'I want the best, even if it costs a bit more', note: 'Premium speed & security first.' },
+          { value: 'balanced', label: 'I want the best balance of price & quality', note: 'Solid features, smart pricing.' },
+          { value: 'cheap', label: 'I want the cheapest long‑term deal', note: 'I’m happy to commit to a long plan for a low monthly cost.' },
+          { value: 'free', label: 'I’m looking for a trusted free or “start free” option', note: 'I’ll upgrade later if I need more.' }
+        ]
       },
       {
-        name: 'Private Internet Access',
-        link: 'https://www.privateinternetaccess.com/offer/affiliate/YOUR_AFF_ID',
-        price: 6,
-        devices: 10,
-        tagline: 'Open-source clients with large server counts.',
-        badges: ['Open-source', 'Budget pick'],
-        weight: { speed: 3, privacy: 4, budget: 5, travel: 3 },
-        extras: ['adblock']
+        key: 'experience',
+        question: 'How “techy” are you with this stuff?',
+        type: 'options',
+        options: [
+          { value: 'simple', label: 'Keep it super simple', note: 'I want a clean app and a big ON/OFF button.' },
+          { value: 'comfortable', label: 'Comfortable with a few options', note: 'I can handle choosing a server, protocol, etc.' },
+          { value: 'power', label: 'Power user / privacy nerd', note: 'I love advanced settings and extra privacy tools.' }
+        ]
+      },
+      {
+        key: 'features',
+        question: 'Any must‑have features? (Choose all that apply)',
+        type: 'checkboxes',
+        options: [
+          { value: 'iphone', label: 'Works great on iPhone' },
+          { value: 'android', label: 'Works great on Android' },
+          { value: 'speed', label: 'Fastest speeds possible (streaming / gaming)' },
+          { value: 'unlimited', label: 'Unlimited devices on one plan' },
+          { value: 'privacy', label: 'Strongest privacy / audited no‑logs' },
+          { value: 'streaming', label: 'Best for streaming Netflix & sports' },
+          { value: 'crypto-pay', label: 'Accepts crypto payments' },
+          { value: 'extras', label: 'Extra tools (ad‑blocker, malware filter, etc.)' }
+        ]
       }
     ];
 
-    const state = {
-      priority: 'speed',
-      usage: 'home',
-      devices: '4-8',
-      streaming: 'yes',
-      extras: new Set(['adblock']),
-      budget: 12
+    const resultTemplates = {
+      crypto: (primary, secondary) => ({
+        tag: 'Crypto Trader Result',
+        heading: `Your Best Match: ${primary.name} – Trade Crypto Safely`,
+        copy: `Based on your answers, ${primary.name} keeps your exchange logins and API keys safer on public Wi‑Fi while delivering the speed you need for real‑time trades.`,
+        bullets: [
+          'Serious privacy with strong encryption and a strict no‑logs stance.',
+          'Fast enough for order books, price feeds, and mobile trading.',
+          'Geo‑block friendly so you can access exchanges while traveling.',
+          'Kill switch protection so your real IP never leaks mid‑trade.',
+          primary.deal
+        ],
+        cta: primary.cta,
+        link: primary.link,
+        secondary: secondary
+      }),
+      travel: (primary, secondary) => ({
+        tag: 'Travel / Public Wi‑Fi Result',
+        heading: `Your Best Match: ${primary.name} – Travel & Public Wi‑Fi`,
+        copy: `${primary.name} makes it easy to stay secure on airport, hotel, and café Wi‑Fi while keeping your streaming services available abroad.`,
+        bullets: [
+          'Reliable on sketchy networks with automatic protection.',
+          'Great for streaming your home content while you travel.',
+          'Fast nearby servers for smooth video calls and browsing.',
+          'Beginner‑friendly apps so you can tap connect and go.',
+          primary.deal
+        ],
+        cta: primary.cta,
+        link: primary.link,
+        secondary: secondary
+      }),
+      iphone: (primary, secondary) => ({
+        tag: 'iPhone‑Only Result',
+        heading: `Your Best Match: ${primary.name} – Best for iPhone`,
+        copy: `${primary.name} delivers a clean, fast iOS experience so your iPhone stays private on public Wi‑Fi and streaming stays smooth.`,
+        bullets: [
+          'Polished iOS app with one‑tap connect.',
+          'Fast speeds for FaceTime, streaming, and daily browsing.',
+          'Strong privacy with modern encryption and no‑logs approach.',
+          'Works great when traveling to keep banking and apps consistent.',
+          primary.deal
+        ],
+        cta: primary.cta,
+        link: primary.link,
+        secondary: secondary
+      }),
+      generic: (primary, secondary) => ({
+        tag: 'Best Overall Mobile VPN',
+        heading: `Your Best Match: ${primary.name} – Best All‑Round Mobile VPN`,
+        copy: `${primary.name} hits the sweet spot for speed, security, and mobile ease‑of‑use. It’s our go‑to pick for most people who want a fast, set‑and‑forget app.`,
+        bullets: [
+          'Fast on both Wi‑Fi and 5G for streaming and gaming.',
+          'Serious privacy with leak protection and kill switch.',
+          'Huge server network to beat geo‑blocks and unlock content.',
+          'Mobile‑first design with auto‑connect on unsafe Wi‑Fi.',
+          primary.deal
+        ],
+        cta: primary.cta,
+        link: primary.link,
+        secondary: secondary
+      })
     };
 
-    const choiceGroups = document.querySelectorAll('.choices[data-group]');
-    choiceGroups.forEach(group => {
-      group.addEventListener('click', event => {
-        const choice = event.target.closest('.choice');
-        if (!choice) return;
-        const { group: key } = group.dataset;
-        group.querySelectorAll('.choice').forEach(el => el.classList.remove('active'));
-        choice.classList.add('active');
-        state[key] = choice.dataset.value;
-        update();
-      });
-    });
+    const brands = {
+      nord: {
+        name: 'NordVPN',
+        link: 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID',
+        deal: 'Current deal: Up to 63% off + 3 extra months free on longer plans.',
+        cta: 'Get NordVPN Deal – Activate My Discount'
+      },
+      surfshark: {
+        name: 'Surfshark',
+        link: 'https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID',
+        deal: 'Aggressive long‑term pricing with unlimited devices.',
+        cta: 'Activate Surfshark Low‑Cost Plan'
+      },
+      express: {
+        name: 'ExpressVPN',
+        link: 'https://www.xvinlink.com/?a_fid=YOUR_AFF_ID',
+        deal: 'Travel‑ready speeds and consistent streaming access.',
+        cta: 'Unlock Streaming with ExpressVPN'
+      },
+      proton: {
+        name: 'Proton VPN',
+        link: 'https://go.getproton.me/aff_c?offer_id=YOUR_AFF_ID',
+        deal: 'Free plan available plus privacy‑first paid tiers.',
+        cta: 'Try Proton VPN Free'
+      }
+    };
 
-    const pillGroups = document.querySelectorAll('.pill-row[data-group]');
-    pillGroups.forEach(row => {
-      row.addEventListener('click', event => {
-        const pill = event.target.closest('.pill');
-        if (!pill) return;
-        const key = row.dataset.group;
-        if (key === 'extras') {
-          pill.classList.toggle('active');
-          const value = pill.dataset.value;
-          if (pill.classList.contains('active')) state.extras.add(value); else state.extras.delete(value);
-        } else {
-          row.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
-          pill.classList.add('active');
-          state[key] = pill.dataset.value;
-        }
-        update();
-      });
-    });
+    const state = {
+      step: 0,
+      devices: null,
+      reason: null,
+      budget: null,
+      experience: null,
+      features: new Set()
+    };
 
-    document.querySelector('#budget').addEventListener('input', (e) => {
-      state.budget = Number(e.target.value);
-      document.querySelector('#budget-label').textContent = `$${state.budget}`;
-      update();
-    });
+    const stepContent = document.getElementById('step-content');
+    const progressBar = document.getElementById('progress-bar');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
 
-    function scoreProvider(provider) {
-      const { priority, usage, devices, streaming, extras, budget } = state;
-      let score = provider.weight[priority] * 3;
-      score += provider.weight.travel * (usage === 'travel' || usage === 'both' ? 2.5 : 1.5);
-      score += provider.weight.speed * (streaming === 'yes' ? 2 : 1);
-      score += provider.weight.budget * (budget >= provider.price ? 1.8 : 0.8);
+    function renderStep() {
+      const current = steps[state.step];
+      progressBar.style.width = `${((state.step) / steps.length) * 100}%`;
+      nextBtn.textContent = state.step === 0 ? 'Start My VPN Match' : (state.step === steps.length - 1 ? 'See My Best VPN Match' : 'Next');
+      prevBtn.disabled = state.step === 0;
 
-      if (devices === '9+') score += provider.devices >= 9 ? 3 : 1;
-      if (devices === '4-8') score += provider.devices >= 4 ? 2.2 : 1;
-      if (devices === '1-3') score += 1.2;
+      if (!current) return;
+      let html = `<div class="step-label">Step ${state.step + 1} of ${steps.length}</div><div class="question">${current.question}</div>`;
 
-      extras.forEach(extra => { score += provider.extras.includes(extra) ? 1.4 : 0.4; });
-      return score;
+      if (current.type === 'options') {
+        html += '<div class="multi">';
+        current.options.forEach(opt => {
+          const active = state[current.key] === opt.value ? 'active' : '';
+          html += `<div class="pill ${active}" data-value="${opt.value}" data-key="${current.key}"><strong>${opt.label}</strong><small>${opt.note}</small></div>`;
+        });
+        html += '</div>';
+      } else if (current.type === 'checkboxes') {
+        html += '<div class="multi">';
+        current.options.forEach(opt => {
+          const active = state.features.has(opt.value) ? 'active' : '';
+          html += `<label class="checkbox ${active}" data-value="${opt.value}"><input type="checkbox" ${active ? 'checked' : ''}/> <div><strong>${opt.label}</strong></div></label>`;
+        });
+        html += '</div>';
+      }
+      stepContent.innerHTML = html;
     }
 
-    function update() {
-      const ranked = providers
-        .map(p => ({ ...p, score: scoreProvider(p) }))
-        .sort((a, b) => b.score - a.score);
+    function handleOptionClick(e) {
+      const pill = e.target.closest('.pill');
+      if (!pill) return;
+      const key = pill.dataset.key;
+      state[key] = pill.dataset.value;
+      renderStep();
+    }
 
-      const top = ranked[0];
-      const confidence = Math.min(96, Math.round((top.score / (ranked[0].score + ranked[1].score * 0.4)) * 100));
-      document.querySelector('#provider-name').textContent = top.name;
-      document.querySelector('#provider-tagline').textContent = top.tagline;
-      document.querySelector('#provider-link').href = top.link;
-      document.querySelector('#confidence').style.width = `${confidence}%`;
-      document.querySelector('#badge').textContent = `${confidence}% match`;
+    function handleCheckboxClick(e) {
+      const box = e.target.closest('.checkbox');
+      if (!box) return;
+      const value = box.dataset.value;
+      if (state.features.has(value)) state.features.delete(value); else state.features.add(value);
+      renderStep();
+    }
 
-      const note = [
-        `Budget fit: ${top.price <= state.budget ? '✔ Fits' : '▲ Slightly above'} your $${state.budget}/mo target`,
-        `Streaming: ${state.streaming === 'yes' ? 'Optimized routes ready' : 'Streaming not prioritized'}`,
-        `Devices: supports up to ${top.devices === Infinity ? 'unlimited' : top.devices}`
-      ];
+    function determinePersona() {
+      if (state.reason === 'crypto') return 'crypto';
+      if (state.reason === 'wifi') return 'travel';
+      const iphoneOnly = state.devices === 'iphone';
+      if (iphoneOnly && state.reason !== 'crypto' && state.reason !== 'torrenting') return 'iphone';
+      return 'generic';
+    }
 
-      document.querySelector('#provider-notes').innerHTML = `
-        <ul style="margin: 8px 0 0 16px; padding:0; color: rgba(255,255,255,0.82); line-height: 1.5;">
-          ${note.map(item => `<li>${item}</li>`).join('')}
-        </ul>
+    function pickBrand(persona) {
+      const f = state.features;
+      const experience = state.experience;
+      const budget = state.budget;
+      const devices = state.devices;
+
+      if (persona === 'crypto') {
+        if (budget === 'cheap') return [brands.surfshark, brands.nord];
+        if (f.has('privacy') || f.has('crypto-pay') || experience === 'power') return [brands.proton, brands.nord];
+        return [brands.nord, brands.express];
+      }
+
+      if (persona === 'travel') {
+        if (experience === 'simple' || state.reason === 'streaming') return [brands.express, brands.nord];
+        if (budget === 'cheap' || devices === 'all') return [brands.surfshark, brands.nord];
+        return [brands.nord, brands.express];
+      }
+
+      if (persona === 'iphone') {
+        if (budget === 'premium' || experience === 'simple') return [brands.express, brands.nord];
+        if (budget === 'cheap') return [brands.surfshark, brands.nord];
+        return [brands.nord, brands.surfshark];
+      }
+
+      // generic fallback
+      if (budget === 'cheap') return [brands.surfshark, brands.nord];
+      if (budget === 'free') return [brands.proton, brands.nord];
+      return [brands.nord, brands.express];
+    }
+
+    function renderResult() {
+      const persona = determinePersona();
+      const [primary, secondary] = pickBrand(persona);
+      const template = resultTemplates[persona] || resultTemplates.generic;
+      const result = template(primary, secondary);
+      document.getElementById('persona-tag').textContent = result.tag;
+      document.getElementById('result-heading').textContent = result.heading;
+      document.getElementById('result-copy').textContent = result.copy;
+      document.getElementById('result-cta').textContent = result.cta;
+      document.getElementById('result-cta').href = result.link;
+      document.getElementById('result-bullets').innerHTML = `
+        ${result.bullets.map(b => `<div class="bullet">• <div>${b}</div></div>`).join('')}
+        <div class="bullet" style="margin-top:8px;">
+          <div style="background:rgba(255,255,255,0.08); padding:10px 12px; border-radius:12px;">
+            Prefer another option? <strong>${secondary.name}</strong> is a great backup pick.
+          </div>
+        </div>
       `;
     }
 
-    function initializeDefaults() {
-      document.querySelector('[data-group="priority"] .choice[data-value="speed"]').classList.add('active');
-      document.querySelector('[data-group="usage"] .choice[data-value="home"]').classList.add('active');
-      document.querySelector('[data-group="devices"] .pill[data-value="4-8"]').classList.add('active');
-      document.querySelector('[data-group="streaming"] .pill[data-value="yes"]').classList.add('active');
-      document.querySelector('[data-group="extras"] .pill[data-value="adblock"]').classList.add('active');
-      update();
-    }
+    nextBtn.addEventListener('click', () => {
+      if (state.step === steps.length - 1) {
+        renderResult();
+        return;
+      }
+      state.step = Math.min(steps.length - 1, state.step + 1);
+      renderStep();
+    });
 
-    initializeDefaults();
+    prevBtn.addEventListener('click', () => {
+      state.step = Math.max(0, state.step - 1);
+      renderStep();
+    });
+
+    stepContent.addEventListener('click', handleOptionClick);
+    stepContent.addEventListener('click', handleCheckboxClick);
+
+    renderStep();
+    renderResult();
   </script>
 </body>
 </html>
