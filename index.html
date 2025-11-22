@@ -3,176 +3,542 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best VPN Deals — November 2025</title>
+  <title>Best VPN Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --ink: #171a20;
+      --muted: #6e6e73;
+      --panel: #f5f5f7;
+      --accent: #e31837;
+      --accent-2: #0071e3;
+      --border: #e5e5e7;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #fdfdfd;
-      color: #1d1d1f;
-      line-height: 1.6;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
     }
     header {
-      background: linear-gradient(135deg, #f5f5f7 0%, #eaeaea 100%);
-      padding: 80px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.86);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+    }
+    header .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 500;
+      transition: color .2s ease;
+    }
+    header nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 90px 24px 70px;
       text-align: center;
+      background: linear-gradient(135deg, #f9f9fb 0%, #ffffff 50%, #f3f4f6 100%);
     }
-    header h1 {
-      font-size: 2.8em;
-      margin: 0 0 10px;
-      font-weight: 600;
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin: 0 0 14px;
+      letter-spacing: -0.04em;
     }
-    header p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+    .hero p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 18px;
     }
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #0071e3;
+    .hero .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0b0b0d;
       color: #fff;
-      border-radius: 28px;
+      padding: 14px 26px;
+      border-radius: 999px;
       text-decoration: none;
       font-weight: 600;
-      transition: background-color .2s ease;
+      letter-spacing: 0.2px;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .btn:hover {
-      background-color: #005bb5;
+    .hero .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
     }
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+
+    .shell {
+      max-width: 1100px;
+      margin: -60px auto 80px;
+      padding: 0 20px;
     }
-    .cards {
+    .panel {
+      background: #fff;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      border: 1px solid var(--border);
+    }
+    .panel + .panel { margin-top: 18px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 22px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-title span {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--panel);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .choice {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      background: #fdfdfd;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .choice strong { display: block; margin-bottom: 6px; }
+    .choice small { color: var(--muted); line-height: 1.5; display: block; }
+    .choice.active {
+      border-color: #0b0b0d;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .slider-group {
+      margin: 16px 0 6px;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--ink);
+    }
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      margin-bottom: 60px;
+      gap: 10px;
+      margin: 6px 0 2px;
     }
-    .card {
-      flex: 1 1 300px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      padding: 30px;
-      text-align: left;
-      transition: transform .3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.5em;
-      margin-bottom: 12px;
-    }
-    .card ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
-    .card ul li {
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-    }
-    .card ul li::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 0;
-      width: 6px;
-      height: 6px;
-      background-color: #0071e3;
-      border-radius: 50%;
-    }
-    .comparison {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 60px;
-    }
-    .comparison th, .comparison td {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 12px;
-      text-align: left;
-    }
-    .comparison th {
-      background-color: #f5f5f7;
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fdfdfd;
+      cursor: pointer;
       font-weight: 600;
+      font-size: 14px;
+      transition: all .15s ease;
     }
-    .faq {
-      margin-bottom: 60px;
+    .pill.active { border-color: #0b0b0d; background: #fff; }
+
+    .summary {
+      background: linear-gradient(135deg, #0b0b0d, #1d1f23);
+      color: #fff;
+      border-radius: 22px;
+      padding: 22px;
+      display: grid;
+      gap: 10px;
     }
-    .faq h3 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
+    .summary small { color: rgba(255,255,255,0.7); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
     }
-    footer {
-      background-color: #f5f5f7;
-      padding: 20px;
+    .progress {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      height: 8px;
+      margin-top: 6px;
+    }
+    .progress span {
+      display: block;
+      height: 8px;
+      background: #fff;
+      width: 36%;
+      transition: width .2s ease;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .cta-primary, .cta-ghost {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid #fff;
+      color: #fff;
+      background: transparent;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       text-align: center;
-      font-size: 0.9em;
-      color: #555;
+      transition: background .2s ease, color .2s ease;
+      min-width: 160px;
     }
-    @media (max-width: 768px) {
-      header {
-        padding: 60px 20px;
-      }
-      header h1 {
-        font-size: 2em;
-      }
-      .cards {
-        flex-direction: column;
-        gap: 20px;
-      }
+    .cta-primary { background: #fff; color: #0b0b0d; border-color: #fff; }
+    .cta-primary:hover { background: #dcdcdc; }
+    .cta-ghost:hover { background: rgba(255,255,255,0.08); }
+
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .callout {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fafafa;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px 60px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      header { position: static; }
+      .shell { margin-top: -30px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Best VPN Deals — November 2025</h1>
-    <p>Secure your privacy and save with our top picks.</p>
-    <a href="#offers" class="btn">See the Deals</a>
+    <div class="brand">Best Mobile VPN</div>
+    <nav>
+      <a href="#builder">Builder</a>
+      <a href="#recommendation">Recommendation</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </header>
-  <main>
-    <section id="offers" class="cards">
-      <article class="card">
-        <h3>NordVPN</h3>
-        <ul>
-          <li>Fast speeds &amp; reliable streaming</li>
-          <li>No‑logs policy, thousands of servers</li>
-          <li>24/7 customer support</li>
-        </ul>
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=YOUR_AFF_ID" class="btn">Get NordVPN</a>
-      </article>
-      <article class="card">
-        <h3>Surfshark</h3>
-        <ul>
-          <li>Unlimited devices per account</li>
-          <li>Kill‑switch &amp; built‑in ad‑block</li>
-          <li>Great value for families &amp; travel</li>
-        </ul>
-        <a href="https://get.surfshark.net/aff_c?offer_id=123&amp;aff_id=YOUR_AFF_ID" class="btn">Get Surfshark</a>
-      </article>
-    </section>
-    <section class="comparison">
-      <h3 style="text-align:center">Compare at a glance</h3>
-      <table class="comparison">
-        <tr><th>Provider</th><th>Best For</th><th>Devices</th><th>Notables</th></tr>
-        <tr><td>NordVPN</td><td>Streaming &amp; travel</td><td>Up to 6</td><td>No‑logs, many servers</td></tr>
-        <tr><td>Surfshark</td><td>Budget &amp; families</td><td>Unlimited</td><td>Kill‑switch, ad‑block</td></tr>
-      </table>
-    </section>
-    <section class="faq">
-      <h3>How do we choose?</h3>
-      <p>We evaluate speed, features, and price across leading VPNs to find the best value picks. If you purchase through our links, we may earn a commission at no extra cost to you.</p>
-    </section>
-  </main>
+
+  <section class="hero">
+    <h1>Build the best VPN plan for you</h1>
+    <p>Answer a few quick questions and we’ll craft a recommendation inspired by the clean, confident Tesla experience.</p>
+    <a class="cta" href="#builder">Start now →</a>
+  </section>
+
+  <div class="shell" id="builder">
+    <div class="panel grid">
+      <div>
+        <div class="section-title"><span>1</span>What matters most?</div>
+        <div class="choices" data-group="priority">
+          <div class="choice" data-value="speed">
+            <strong>Speed</strong>
+            <small>Fast streaming, gaming, and downloads.</small>
+          </div>
+          <div class="choice" data-value="privacy">
+            <strong>Privacy</strong>
+            <small>Independent audits, RAM-only servers.</small>
+          </div>
+          <div class="choice" data-value="budget">
+            <strong>Best value</strong>
+            <small>Affordable monthly pricing for many devices.</small>
+          </div>
+          <div class="choice" data-value="travel">
+            <strong>Travel</strong>
+            <small>Strong at bypassing blocks in airports & hotels.</small>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title"><span>2</span>Where will you use it?</div>
+        <div class="choices" data-group="usage">
+          <div class="choice" data-value="home">
+            <strong>At home</strong>
+            <small>Smart TVs and shared Wi‑Fi.</small>
+          </div>
+          <div class="choice" data-value="travel">
+            <strong>On the go</strong>
+            <small>Airports, hotels, mobile hotspots.</small>
+          </div>
+          <div class="choice" data-value="both">
+            <strong>Both</strong>
+            <small>Mix of home and travel use.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel grid">
+      <div>
+        <div class="section-title"><span>3</span>Devices & streaming</div>
+        <div class="pill-row" data-group="devices">
+          <div class="pill" data-value="1-3">1–3 devices</div>
+          <div class="pill" data-value="4-8">4–8 devices</div>
+          <div class="pill" data-value="9+">9+ devices</div>
+        </div>
+        <div class="pill-row" data-group="streaming">
+          <div class="pill" data-value="yes">Needs Netflix/YouTube TV</div>
+          <div class="pill" data-value="no">Streaming not needed</div>
+        </div>
+        <div class="pill-row" data-group="extras">
+          <div class="pill" data-value="adblock">Built‑in ad blocking</div>
+          <div class="pill" data-value="meshnet">Secure device‑to‑device</div>
+          <div class="pill" data-value="antivirus">Security bundle</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title"><span>4</span>Monthly budget</div>
+        <div class="slider-group">
+          <div class="slider-label"><span>Preferred</span><span><strong id="budget-label">$12</strong>/mo</span></div>
+          <input id="budget" type="range" min="4" max="16" step="1" value="12">
+          <div class="slider-label" style="margin-top:6px;"><span>$4</span><span>$16+</span></div>
+        </div>
+        <div class="callouts">
+          <div class="callout">Lower budgets favor Surfshark or Private Internet Access.</div>
+          <div class="callout">Higher budgets unlock faster streaming routes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="recommendation">
+      <div class="section-title"><span>✓</span>Your match</div>
+      <div class="summary">
+        <div class="badge" id="badge">Optimized pick</div>
+        <div>
+          <h2 style="margin:4px 0 2px; font-size: 26px;" id="provider-name">NordVPN</h2>
+          <small id="provider-tagline">Balanced speed, privacy, and unblocking.</small>
+        </div>
+        <div id="provider-notes"></div>
+        <div class="progress"><span id="confidence" style="width: 40%"></span></div>
+        <div class="cta-row">
+          <a class="cta-primary" id="provider-link" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Continue to NordVPN</a>
+          <a class="cta-ghost" href="#faq">See why</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="faq">
+      <div class="section-title"><span>?</span>Why this format</div>
+      <p style="color: var(--muted);">The flow mirrors Tesla’s clean configurator: minimal chrome, strong typography, and clear steps. Each tap updates your recommendation instantly so you always know which VPN best fits your speed, privacy, device, and budget needs.</p>
+      <div class="choices" style="margin-top: 12px;" data-group="faq">
+        <div class="choice active">
+          <strong>Do you log data?</strong>
+          <small>No. Each recommended provider has a public no‑logs policy and audited infrastructure.</small>
+        </div>
+        <div class="choice active">
+          <strong>Can I change later?</strong>
+          <small>Yes. Links take you directly to flexible plans with money‑back guarantees.</small>
+        </div>
+        <div class="choice active">
+          <strong>Affiliate notice</strong>
+          <small>Some links are affiliate links. Your price never changes.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p><strong>Affiliate disclosure:</strong> Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you.</p>
+    Built for simplicity. Choose confidently, like configuring a car — but for your privacy.
   </footer>
+
+  <script>
+    const providers = [
+      {
+        name: 'NordVPN',
+        link: 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID',
+        price: 12,
+        devices: 6,
+        tagline: 'Balanced speed, privacy, and unblocking.',
+        badges: ['Fastest routes', 'Meshnet'],
+        weight: { speed: 5, privacy: 5, budget: 3, travel: 4 },
+        extras: ['meshnet']
+      },
+      {
+        name: 'Surfshark',
+        link: 'https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID',
+        price: 8,
+        devices: Infinity,
+        tagline: 'Unlimited devices with ad & tracker blocking.',
+        badges: ['Value leader', 'Unlimited devices'],
+        weight: { speed: 4, privacy: 4, budget: 5, travel: 4 },
+        extras: ['adblock']
+      },
+      {
+        name: 'ExpressVPN',
+        link: 'https://www.xvinlink.com/?a_fid=YOUR_AFF_ID',
+        price: 14,
+        devices: 8,
+        tagline: 'Premium routing for travelers and streamers.',
+        badges: ['Travel proven', 'Premium'],
+        weight: { speed: 5, privacy: 4, budget: 2, travel: 5 },
+        extras: []
+      },
+      {
+        name: 'Private Internet Access',
+        link: 'https://www.privateinternetaccess.com/offer/affiliate/YOUR_AFF_ID',
+        price: 6,
+        devices: 10,
+        tagline: 'Open-source clients with large server counts.',
+        badges: ['Open-source', 'Budget pick'],
+        weight: { speed: 3, privacy: 4, budget: 5, travel: 3 },
+        extras: ['adblock']
+      }
+    ];
+
+    const state = {
+      priority: 'speed',
+      usage: 'home',
+      devices: '4-8',
+      streaming: 'yes',
+      extras: new Set(['adblock']),
+      budget: 12
+    };
+
+    const choiceGroups = document.querySelectorAll('.choices[data-group]');
+    choiceGroups.forEach(group => {
+      group.addEventListener('click', event => {
+        const choice = event.target.closest('.choice');
+        if (!choice) return;
+        const { group: key } = group.dataset;
+        group.querySelectorAll('.choice').forEach(el => el.classList.remove('active'));
+        choice.classList.add('active');
+        state[key] = choice.dataset.value;
+        update();
+      });
+    });
+
+    const pillGroups = document.querySelectorAll('.pill-row[data-group]');
+    pillGroups.forEach(row => {
+      row.addEventListener('click', event => {
+        const pill = event.target.closest('.pill');
+        if (!pill) return;
+        const key = row.dataset.group;
+        if (key === 'extras') {
+          pill.classList.toggle('active');
+          const value = pill.dataset.value;
+          if (pill.classList.contains('active')) state.extras.add(value); else state.extras.delete(value);
+        } else {
+          row.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
+          pill.classList.add('active');
+          state[key] = pill.dataset.value;
+        }
+        update();
+      });
+    });
+
+    document.querySelector('#budget').addEventListener('input', (e) => {
+      state.budget = Number(e.target.value);
+      document.querySelector('#budget-label').textContent = `$${state.budget}`;
+      update();
+    });
+
+    function scoreProvider(provider) {
+      const { priority, usage, devices, streaming, extras, budget } = state;
+      let score = provider.weight[priority] * 3;
+      score += provider.weight.travel * (usage === 'travel' || usage === 'both' ? 2.5 : 1.5);
+      score += provider.weight.speed * (streaming === 'yes' ? 2 : 1);
+      score += provider.weight.budget * (budget >= provider.price ? 1.8 : 0.8);
+
+      if (devices === '9+') score += provider.devices >= 9 ? 3 : 1;
+      if (devices === '4-8') score += provider.devices >= 4 ? 2.2 : 1;
+      if (devices === '1-3') score += 1.2;
+
+      extras.forEach(extra => { score += provider.extras.includes(extra) ? 1.4 : 0.4; });
+      return score;
+    }
+
+    function update() {
+      const ranked = providers
+        .map(p => ({ ...p, score: scoreProvider(p) }))
+        .sort((a, b) => b.score - a.score);
+
+      const top = ranked[0];
+      const confidence = Math.min(96, Math.round((top.score / (ranked[0].score + ranked[1].score * 0.4)) * 100));
+      document.querySelector('#provider-name').textContent = top.name;
+      document.querySelector('#provider-tagline').textContent = top.tagline;
+      document.querySelector('#provider-link').href = top.link;
+      document.querySelector('#confidence').style.width = `${confidence}%`;
+      document.querySelector('#badge').textContent = `${confidence}% match`;
+
+      const note = [
+        `Budget fit: ${top.price <= state.budget ? '✔ Fits' : '▲ Slightly above'} your $${state.budget}/mo target`,
+        `Streaming: ${state.streaming === 'yes' ? 'Optimized routes ready' : 'Streaming not prioritized'}`,
+        `Devices: supports up to ${top.devices === Infinity ? 'unlimited' : top.devices}`
+      ];
+
+      document.querySelector('#provider-notes').innerHTML = `
+        <ul style="margin: 8px 0 0 16px; padding:0; color: rgba(255,255,255,0.82); line-height: 1.5;">
+          ${note.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      `;
+    }
+
+    function initializeDefaults() {
+      document.querySelector('[data-group="priority"] .choice[data-value="speed"]').classList.add('active');
+      document.querySelector('[data-group="usage"] .choice[data-value="home"]').classList.add('active');
+      document.querySelector('[data-group="devices"] .pill[data-value="4-8"]').classList.add('active');
+      document.querySelector('[data-group="streaming"] .pill[data-value="yes"]').classList.add('active');
+      document.querySelector('[data-group="extras"] .pill[data-value="adblock"]').classList.add('active');
+      update();
+    }
+
+    initializeDefaults();
+  </script>
 </body>
 </html>
