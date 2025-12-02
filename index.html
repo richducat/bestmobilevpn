@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Best Mobile VPN Finder</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https:; script-src 'self' 'nonce-site-lock'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script nonce="site-lock">
+    if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+      location.replace(`https://${location.host}${location.pathname}${location.search}${location.hash}`);
+    }
+  </script>
   <style>
     :root {
       --ink: #0e1116;
@@ -147,6 +154,12 @@
     .card p { color: var(--muted); }
     .card .btn { width: 100%; box-shadow: none; }
 
+    .security-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .security-card { border: 1px solid var(--border); border-radius: 16px; padding: 18px; background: #fff; box-shadow: var(--shadow); height: 100%; }
+    .security-card h4 { margin: 0 0 8px; display: flex; align-items: center; gap: 10px; }
+    .pill-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; background: #eef2ff; color: #2c399b; border-radius: 999px; font-weight: 700; font-size: 13px; margin-bottom: 10px; }
+    .fine-print { color: var(--muted); font-size: 13px; line-height: 1.6; }
+
     footer { text-align: center; padding: 40px 14px 70px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
     @media (max-width: 900px) {
@@ -173,6 +186,33 @@
       <a class="btn btn-secondary" href="#top-picks">See Today’s Top Mobile VPN Deals</a>
     </div>
     <div class="trust-bar">Real testing • No “random listicles” • We may earn a commission if you buy through our links — at <strong>no extra cost</strong> to you.</div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="pill-badge">🔒 Security-first promise</div>
+      <h2 class="section-heading">Built to keep your browsing private and this site safe to use.</h2>
+      <p class="section-sub">We obsess over mobile security, and that includes the way this site handles your data. Here’s what we do so you can explore VPN options with confidence.</p>
+      <div class="security-grid" style="margin-top:18px;">
+        <div class="security-card">
+          <h4>🛡️ Encrypted by default</h4>
+          <p class="section-sub">Every page, quiz step, and outbound link is served over HTTPS to prevent tampering or snooping while you browse.</p>
+        </div>
+        <div class="security-card">
+          <h4>🙈 Your answers stay on your device</h4>
+          <p class="section-sub">The quiz runs entirely in your browser. We don’t store, log, or transmit your selections—your picks never leave your phone.</p>
+        </div>
+        <div class="security-card">
+          <h4>🔗 Safe outbound links</h4>
+          <p class="section-sub">Affiliate links open in new tabs with <code>rel="noopener"</code> to prevent tab‑nabbing and ensure you land on the official offer pages.</p>
+        </div>
+        <div class="security-card">
+          <h4>✅ Tested recommendations</h4>
+          <p class="section-sub">We evaluate VPNs for encryption strength, leak protection, and kill switches, then highlight the safest picks for mobile.</p>
+        </div>
+      </div>
+      <p class="fine-print" style="margin-top:12px;">Want to double‑check? Look for the lock icon in your address bar (<code>https://</code>) and feel free to clear quiz answers by refreshing the page.</p>
+    </div>
   </section>
 
   <section>
@@ -212,7 +252,7 @@
           <p id="result-copy">Based on your answers, NordVPN hits the sweet spot for speed, security, and mobile ease‑of‑use. It’s the VPN we recommend to most people who want a fast, set‑and‑forget app that just works on both iPhone and Android.</p>
           <div id="result-bullets"></div>
           <div class="cta-stack">
-            <a class="cta-dark" id="result-cta" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Get NordVPN Deal – Activate My Discount</a>
+            <a class="cta-dark" id="result-cta" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener noreferrer">Get NordVPN Deal – Activate My Discount</a>
             <a class="cta-outline" href="#top-picks">Compare with Other Top Mobile VPNs</a>
           </div>
           <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin-top:10px;">You’ll be taken to the official site. Discount is applied automatically.</p>
@@ -230,25 +270,25 @@
           <h4>Editor’s Choice: NordVPN</h4>
           <p>Best for: <strong>Most iPhone &amp; Android users</strong></p>
           <p>Fast, secure, easy to use, with a great mix of price &amp; features.</p>
-          <a class="btn btn-secondary" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">Get NordVPN – Up to 63% Off + 3 Months Free</a>
+          <a class="btn btn-secondary" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener noreferrer">Get NordVPN – Up to 63% Off + 3 Months Free</a>
         </div>
         <div class="card">
           <h4>Best Value: Surfshark</h4>
           <p>Best for: <strong>Families &amp; device hoarders</strong></p>
           <p>Unlimited devices on one plan, great price, strong apps.</p>
-          <a class="btn btn-secondary" href="https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener">See Surfshark Discount</a>
+          <a class="btn btn-secondary" href="https://get.surfshark.net/aff_c?offer_id=123&aff_id=YOUR_AFF_ID" target="_blank" rel="noopener noreferrer">See Surfshark Discount</a>
         </div>
         <div class="card">
           <h4>Best for Streaming: ExpressVPN</h4>
           <p>Best for: <strong>Streaming &amp; travel</strong></p>
           <p>Very consistent streaming unblock, fast global network, super simple apps.</p>
-          <a class="btn btn-secondary" href="https://www.xvinlink.com/?a_fid=YOUR_AFF_ID" target="_blank" rel="noopener">Get ExpressVPN for Streaming</a>
+          <a class="btn btn-secondary" href="https://www.xvinlink.com/?a_fid=YOUR_AFF_ID" target="_blank" rel="noopener noreferrer">Get ExpressVPN for Streaming</a>
         </div>
         <div class="card">
           <h4>Best Free Option: Proton VPN</h4>
           <p>Best for: <strong>Budget / privacy‑first users</strong></p>
           <p>Legit free tier, strong privacy, upgrade path if needed.</p>
-          <a class="btn btn-secondary" href="https://go.getproton.me/aff_c?offer_id=YOUR_AFF_ID" target="_blank" rel="noopener">Start with Proton VPN Free</a>
+          <a class="btn btn-secondary" href="https://go.getproton.me/aff_c?offer_id=YOUR_AFF_ID" target="_blank" rel="noopener noreferrer">Start with Proton VPN Free</a>
         </div>
       </div>
     </div>
@@ -272,7 +312,7 @@
     <p>Built for simplicity. Choose confidently.</p>
   </footer>
 
-  <script>
+  <script nonce="site-lock">
     const steps = [
       {
         key: 'devices',
